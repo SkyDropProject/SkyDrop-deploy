@@ -1,8 +1,8 @@
 # Déploiement sécurisé de SkyDrop dans Kubernetes
 
-## 1. Mise en place de l'environnement
+## 1. Installation des pré-requis et de Kubernetes
 
-### Pré requis
+### Pré-requis
 
 - Ubuntu 24.04
 - 6 GB de mémoire vive
@@ -56,4 +56,13 @@ sudo mv kubectl /usr/local/bin/
 
 ```shell
 minikube start --driver=docker
+```
+
+## 2. Installation de l'environnement
+
+Afin d'organiser, isoler et gérer les ressources plus efficacement, on va créer un namespace dédié au projet.
+
+```shell
+kubectl create namespace skydrop
+kubectl config set-context --current --namespace=skydrop
 ```
