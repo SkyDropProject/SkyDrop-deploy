@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skydrop-server
+  namespace: skydrop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skydrop-server
+  template:
+    metadata:
+      labels:
+        app: skydrop-server
+    spec:
+      containers:
+        - name: api
+          image: skydrop-server:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001
+          envFrom:
+            - secretRef:
+                name: server-secret
