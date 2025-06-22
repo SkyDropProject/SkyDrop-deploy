@@ -1,0 +1,9 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: skydrop
+spec:
+  podSelector: {}  # ← cible tous les pods du namespace
+  policyTypes:
+  - Ingress

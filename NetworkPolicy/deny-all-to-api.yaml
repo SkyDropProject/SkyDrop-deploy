@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-all-to-api
+  namespace: skydrop
+spec:
+  podSelector:
+    matchLabels:
+      app: skydrop-server
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress: []
+  egress: []
