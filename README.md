@@ -52,10 +52,16 @@ chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 ```
 
+### Installation du CNI
+
+```shell
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+```
+
 ### Démarrage de Minikube
 
 ```shell
-minikube start --driver=docker
+minikube start --network-plugin=cni --cni=calico
 ```
 
 ## 2. Installation de l'environnement
