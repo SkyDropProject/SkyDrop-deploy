@@ -72,3 +72,7 @@ Afin d'organiser, isoler et gérer les ressources plus efficacement, on va crée
 kubectl create namespace skydrop
 kubectl config set-context --current --namespace=skydrop
 ```
+
+## Architecture du cluster
+
+![Cluster](./img/Cluster.png)
