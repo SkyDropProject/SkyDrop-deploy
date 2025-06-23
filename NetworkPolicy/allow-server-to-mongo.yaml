@@ -1,14 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: deny-all-to-api
+  name: allow-server-to-mongo
   namespace: skydrop
 spec:
   podSelector:
     matchLabels:
       app: skydrop-server
   policyTypes:
-    - Ingress
-    - Egress
-  ingress: []
-  egress: []
+  - Egress
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: mongo-headless

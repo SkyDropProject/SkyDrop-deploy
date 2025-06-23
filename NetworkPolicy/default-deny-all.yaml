@@ -4,6 +4,7 @@ metadata:
   name: default-deny-all
   namespace: skydrop
 spec:
-  podSelector: {}  # ← cible tous les pods du namespace
+  podSelector: {}
   policyTypes:
   - Ingress
+  - Egress
