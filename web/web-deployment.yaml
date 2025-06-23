@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skydrop-web
+  namespace: skydrop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skydrop-web
+  template:
+    metadata:
+      labels:
+        app: skydrop-web
+    spec:
+      containers:
+        - name: web
+          image: skydrop-web:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001
